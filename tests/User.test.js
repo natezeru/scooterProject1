@@ -3,7 +3,7 @@ const User = require('../src/User')
 
 describe('User Object', () => {
 
-const testUser = new User('verizon123@verizon.com', '5G123')
+const testUser = new User('verizon123@verizon.com', '5G123', 63)
 
 
     test('username is of type string', () => {
@@ -12,6 +12,10 @@ const testUser = new User('verizon123@verizon.com', '5G123')
 
     test('password is of type string' , () => {
         expect(typeof testUser.password).toBe('string')
+    })
+
+    test('age is a type integer', () => {
+        expect(typeof testUser.age).toBe('number')
     })
     
     test('make sure that email is in the correct format', () => {
@@ -29,5 +33,10 @@ const testUser = new User('verizon123@verizon.com', '5G123')
     test('the updatedPassword method changes the this.password property', () => {
         testUser.changePassword('Kevin123')
         expect(testUser.password).toBe("Kevin123")
+    })
+
+    test('userAge method returns message depending on user age' , () => {
+        testUser.usersAge(63)
+        expect(testUser.age).toBe(63)
     })
 })
