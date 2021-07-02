@@ -2,7 +2,7 @@
 const Scooter = require('../src/Scooter')
 
 describe('Scooter Object', () => {
-const testScooter = new Scooter(12345, "full", "Dallas", 44, "condition")
+const testScooter = new Scooter(12345, "full", "Dallas", 100, "condition")
     test('serial is a type of number', () => {
         expect(typeof testScooter.serial).toBe('number')
     })

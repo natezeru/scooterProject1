@@ -3,7 +3,7 @@ const User = require('../src/User')
 
 describe('User Object', () => {
 
-const testUser = new User('verizon123@verizon.com', '5G123', 63)
+const testUser = new User('verizon123@verizon.com', '5G123', 23)
 
 
     test('username is of type string', () => {
@@ -36,7 +36,7 @@ const testUser = new User('verizon123@verizon.com', '5G123', 63)
     })
 
     test('userAge method returns message depending on user age' , () => {
-        testUser.usersAge(63)
-        expect(testUser.age).toBe(63)
+        testUser.usersAge(23)
+        expect(testUser.age).toBe(23)
     })
 })
