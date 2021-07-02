@@ -19,4 +19,6 @@ const testScooter = new Scooter(12345, "full", "Dallas")
         testScooter.updateLocation('New York City')
         expect(testScooter.location).toBe('New York City')
     } )
+
+    
 })
