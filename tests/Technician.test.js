@@ -33,6 +33,6 @@ describe('Technician Object', () => {
 
         test('this returnsToChargingStation method changes the this.retunToStation property', () =>{
             testTechnician.returnsToChargingStation("Returned")
-            expect(testTechnican.returnToStation).toBe('Returned')
+            expect(testTechnician.returnToStation).toBe("Returned")
         })
 })
