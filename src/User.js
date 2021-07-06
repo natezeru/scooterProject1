@@ -1,10 +1,18 @@
+
+
 class User{
-    constructor(username, password, age,){
+    constructor(username, password, age, balance, renting){
     this.username = username
     this.password = password
     this.age = age
+    this.balance = balance
+    this.renting = renting
+    
+    
+    
     }
-
+   
+    
     changeUsername(updatedName){
         this.username = updatedName
     }
@@ -13,15 +21,16 @@ class User{
         this.password = updatedPassword
     }
 
-    usersAge(age){
-        if(age < 18){
-            console.log("User must be above 18")
-        }else{
-           console.log("User is above 18")
-        }
-    }
-    
-    
+     isUserRenting(status){
+         this.renting = status
+         if(status === true){
+             console.log('User is renting scooter');
+         }else{
+             console.log('User is not renting scooter')
+         }
+     }
 }
+
+
 
 module.exports = User

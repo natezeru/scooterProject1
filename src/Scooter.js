@@ -1,40 +1,34 @@
-class Scooter{
-    constructor(serial, charge, location, batteryLevel, condition){
+const User = require("./User")
+
+class Scooter extends User{
+    constructor(username, password, age, balance, renting,  serial, batteryLevel, location, condition){
+        super(username, password, age, balance, renting)
         this.serial = serial
-        this.charge = charge
+        this.batteryLevel = batteryLevel
         this.location = location
+        this.condition = condition
         
     }
-    updateLocation(newLocation){
-        this.location = newLocation
+    batteryStatus(chargeAmount){
+        this.batteryLevel = chargeAmount
+        if(chargeAmount === 100) {
+            console.log('The scooter is fully charged')
+        }else{
+            console.log('scooter needs to be charged')
+        }
+
     }
 
-    batteryLevelAmount(batteryLevel){
-        if(batteryLevel > 100){
-            console.log("Scooter is fully charged and ready to use !")
-        }else{
-            console.log("Scooter is not fully charged and not ready to use !")
+    conditionOfScooter(scooterCondtion){
+        this.condition = scooterCondtion
+
+        if(scooterCondtion === "good"){
+            console.log('marked in good condtion, this can be rented')
+        }else(scooterCondtion === "broken");{
+            console.log('scooter is broken condition, this can not be rented')
         }
     }
 
-    conditionOfScooter(currentCondition){
-        
-    }
-
-    startRide(){
-
-    }
-
-
-    endRide(){
-
-
-    }
-
-    amountRode(){
-
-
-    }
+    
 }
-
 module.exports = Scooter
