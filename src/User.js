@@ -1,13 +1,14 @@
 
 
 class User{
-    constructor(username, password, age, balance, renting){
+    constructor(username, password, email, address,  firstname , lastname, age){
     this.username = username
     this.password = password
+    this.firstname = firstname
+    this.email = email
+    this.address = address
+    this.lastname = lastname
     this.age = age
-    this.balance = balance
-    this.renting = renting
-    
     
     
     }
@@ -21,14 +22,20 @@ class User{
         this.password = updatedPassword
     }
 
-     isUserRenting(status){
-         this.renting = status
-         if(status === true){
-             console.log('User is renting scooter');
+
+    scooterAppDownloaded() {
+        return true
+    }
+     canUserRent(){
+         
+         if(this.age >= 18 && this.scooterAppDownloaded() === true){
+             return true;
          }else{
-             console.log('User is not renting scooter')
+             return false
          }
      }
+
+     
 }
 
 

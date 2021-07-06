@@ -1,12 +1,12 @@
 const User = require('../src/User')
-const Scooter = require('../src/Scooter')
+
 
 
 describe('User Object', () => {
 
-const testUser = new User('verizon123@verizon.com', "5G1234", 23, 50.44, true)
+const testUser = new User("natezeru1", "password!!", "nzeru13@gmail.com", "123 Honey Ln", "Nate", "Zeru", 11)
 
-
+const testUser2 = new User("smithboen2", "mypassword2!!", "smithboen7@gmail.com", "432 Wonka Dr", "Smith", "Boen", 26)
 
     test('username is of type string', () => {
         expect(typeof testUser.username).toBe('string')
@@ -19,35 +19,42 @@ const testUser = new User('verizon123@verizon.com', "5G1234", 23, 50.44, true)
     test('age is a type integer', () => {
         expect(typeof testUser.age).toBe('number')
     })
-    
-    test('balance is a type integer', () => {
-        expect(typeof testUser.balance).toBe("number")
-    })
-
-    test('renting is a type string', () => {
-        expect(typeof testUser.renting).toBe("boolean")
-    })
-    
-    test('make sure that email is in the correct format', () => {
-        const email = testUser.username
-        const indexOfAt = email.split('').indexOf('@')
-        expect(email.slice(indexOfAt)).toBe('@verizon.com')
-    })
 
     test('the changeUsername method changes the this.username property', () => {
-        testUser.changeUsername('abc123@verizon.com')
+        testUser.changeUsername('natezeru1')
 
-        expect(testUser.username).toBe('abc123@verizon.com')
+        expect(testUser.username).toBe('natezeru1')
     })
     
     test('the updatedPassword method changes the this.password property', () => {
-        testUser.changePassword('Kevin123')
-        expect(testUser.password).toBe("Kevin123")
+        testUser.changePassword('password!!')
+        expect(testUser.password).toBe("password!!")
     })
-    test('the isUserRenting method changes the this.renting property', () => {
-        testUser.isUserRenting(true)
-        expect(testUser.renting).toBe(true)
-    })
-   
     
+    test("is app downloaded", () => {
+        expect(testUser.scooterAppDownloaded()).toBe(true)
+        expect(testUser2.scooterAppDownloaded()).toBe(true)
+    })
+    test("is user eligible to rent", () => {
+        expect(testUser.canUserRent()).toBe(false)
+        expect(testUser2.canUserRent()).toBe(true)
+    })
+
+    test('is the user registerd ?', () => {
+        expect(testUser.username).toBe("natezeru1")
+        expect(testUser.password).toBe("password!!")
+        expect(testUser.email).toBe("nzeru13@gmail.com")
+        expect(testUser.address).toBe("123 Honey Ln")
+        expect(testUser.firstname).toBe("Nate")
+        expect(testUser.lastname).toBe("Zeru")
+        expect(testUser.age).toBe(11)
+        
+        expect(testUser2.username).toBe("smithboen2")
+        expect(testUser2.password).toBe("mypassword2!!")
+        expect(testUser2.email).toBe("smithboen7@gmail.com")
+        expect(testUser2.address).toBe("432 Wonka Dr")
+        expect(testUser2.firstname).toBe("Smith")
+        expect(testUser2.lastname).toBe("Boen")
+        expect(testUser2.age).toBe(26)
+    })
 })
